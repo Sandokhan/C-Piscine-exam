@@ -1,22 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   aff_first_param.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: angavrel <angavrel@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/03 15:00:02 by angavrel          #+#    #+#             */
-/*   Updated: 2017/07/14 12:25:39 by fwuensch         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-int		main(int ac, char **av)
+int main (int argc, char **argv)
 {
-	if (ac > 1)
-		while (*av[1])
-			write(1, av[1]++, 1);
+	if (argc > 1)
+		while (*argv[1])
+		{
+			write(1, argv[1], 1);
+			argv[1]++;
+		}
 	write(1, "\n", 1);
 	return (0);
 }
