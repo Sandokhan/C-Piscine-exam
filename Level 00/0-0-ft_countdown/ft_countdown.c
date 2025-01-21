@@ -1,27 +1,21 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_countdown.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/14 11:55:17 by fwuensch          #+#    #+#             */
-/*   Updated: 2017/07/14 11:55:18 by fwuensch         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-int		main(void)
+char ft_countdown()
 {
-	char c;
-
-	c = '9';
-	while (c >= '0')
+	char number;
+	number = '9';
+	while (number >= '0')
 	{
-		write(1, &c, 1);
-		c--;
+		write(1, &number, 1);
+		number--;
 	}
 	write(1, "\n", 1);
-	return (0);
+	return 0;
+}
+
+#include <stdio.h>
+int main(void)
+{
+	ft_countdown();
+	return 0;
 }
