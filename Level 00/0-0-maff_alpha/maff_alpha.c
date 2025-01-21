@@ -1,19 +1,24 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   maff_alpha.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: angavrel <angavrel@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/21 11:26:55 by angavrel          #+#    #+#             */
-/*   Updated: 2017/07/14 11:57:42 by fwuensch         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-int		main(void)
+int main(void)
 {
-	write(1, "aBcDeFgHiJkLmNoPqRsTuVwXyZ\n", 27);
+	char letter;
+	char upperletter;
+	
+	letter = 'a';
+	while (letter <= 'z')
+	{		
+		if (letter % 2 != 0)
+		{
+			write(1, &letter, 1);
+		}
+		else
+		{
+			upperletter = letter - 32;
+			write(1, &upperletter, 1);
+		}
+		letter ++;
+	}	
+	write(1, "\n", 1);
 	return (0);
 }
