@@ -1,29 +1,24 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   maff_revalpha.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/14 12:30:57 by fwuensch          #+#    #+#             */
-/*   Updated: 2017/07/14 12:30:58 by fwuensch         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int main(void)
 {
-	write(1, &c, 1);
-}
+	char letter;
+	char upperletter;
 
-int		main(void)
-{
-	int i;
-
-	i = 123;
-	while (i-- > 97)
-		(i % 2 == 0) ? ft_putchar(i) : ft_putchar(i - 32);
-	ft_putchar('\n');;
+	letter = 'z';
+	while (letter >= 'a')
+	{
+		if (letter % 2 == 0)
+		{
+			write(1, &letter, 1);
+		}
+		else
+		{
+			upperletter = letter - 32;
+			write(1, &upperletter, 1);
+		}
+		letter--;
+	}
+	write(1, "\n", 1);
 	return (0);
 }
