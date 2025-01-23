@@ -1,43 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   repeat_alpha.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fwuensch <fwuensch@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/14 14:55:21 by fwuensch          #+#    #+#             */
-/*   Updated: 2017/07/14 14:59:21 by fwuensch         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
+#include <stdio.h>
 
-int		letter_count(char c)
+int main(int argc, char **argv)
 {
-	int	repeat;
-
-	if (c >= 'A' && c <= 'Z')
-		repeat = c - 'A' + 1;
-	else if (c >= 'a' && c <= 'z')
-		repeat = c - 'a' + 1;
-	else
-		repeat = 1;
-	return (repeat);
-}
-
-int		main(int ac, char **av)
-{
-	int	repeat;
-
-	if (ac == 2)
-	{
-		while (*av[1])
+	if (argc != 2)
+		write(1, "\n", 1);
+	while(*argv[1])
+	{	
+		if (*argv[1] >= 'a' && *argv[1] <= 'z')
 		{
-			repeat = letter_count(*av[1]);
-			while (repeat--)
-				write(1, av[1], 1);
-			av[1]++;
+			for (int i = 0; i < *argv[1] - 'a' + 1; i++)
+				write(1, argv[1], 1);
 		}
+		else if (*argv[1] >= 'A' && *argv[1] <= 'Z')
+		{
+			for (int i = 0; i < *argv[1] - 'A' + 1; i++)
+				write(1, argv[1], 1);
+		}
+		else
+		write(1, argv[1], 1);
+		argv[1]++;
 	}
-	ft_putchar('\n');
+	write(1, "\n", 1);
+	return (0);
 }
