@@ -1,39 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rot_13.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: angavrel <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/06 15:24:57 by angavrel          #+#    #+#             */
-/*   Updated: 2016/12/06 15:28:19 by angavrel         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int main(int argc, char **argv)
 {
-	write(1, &c, 1);
-}
+	if (argc == 2)
+	{
+        while (*argv[1])
+        {
+            if ((*argv[1] >= 'A' && *argv[1] <= 'M') || (*argv[1] >= 'a' && *argv[1] <= 'm'))
+            {
+                *argv[1] += 13 ;
+                write(1, argv[1], 1);
+            }
+            else if ((*argv[1] >= 'N' && *argv[1] <= 'Z') || (*argv[1] >= 'n' && *argv[1] <= 'z'))
+            {
+                *argv[1] -= 13;
+                write(1, argv[1], 1);
 
-
-int		rot_13(char c)
-{
-	if ((c >= 'A' && c <= 'M') || (c >= 'a' && c <= 'm'))
-		c += 13;
-	else if ((c >= 'N' && c <= 'Z') || (c >= 'n' && c <= 'z'))
-		c -= 13;
-	return (c);
-}
-
-
-
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-		while (*av[1])
-			ft_putchar(rot_13(*av[1]++));
-	ft_putchar('\n');
+            }
+            else
+            {
+                write(1, argv[1], 1);
+            }
+            argv[1]++;
+        }
+    }
+	write(1, "\n", 1);
 	return (0);
 }
