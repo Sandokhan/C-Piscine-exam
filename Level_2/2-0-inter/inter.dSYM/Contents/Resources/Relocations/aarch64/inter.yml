@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/rhaydrick/Documents/C-Piscine-exam/Level_2/2-0-inter/inter'
+relocations:     []
+...
